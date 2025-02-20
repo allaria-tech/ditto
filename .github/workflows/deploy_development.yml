@@ -1,0 +1,16 @@
+name: Deploy to development environment
+
+on: 
+  push:
+    branches:
+      - dev
+    paths-ignore:
+      - 'jobs/**'
+
+jobs:
+ build-and-deploy:
+  uses: allaria-tech/infra-github-actions/.github/workflows/deploy-ecs.yml@main
+  with:
+    environment: development
+    runs-on: self-hosted
+  secrets: inherit

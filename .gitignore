@@ -1,0 +1,40 @@
+*.class
+*.log
+
+# build
+target/
+project/project/
+
+# Ignore OS files
+.DS_Store
+
+# Ignore IDE files
+.idea/
+.bsp/
+
+# vscode
+.vscode/
+
+# metals
+.bloop
+.metals/
+.ammonite/
+.trunk/
+metals.sbt
+metals/project/
+null
+metals-options.sbt
+.scala-build
+
+# 
+*.sc
+
+# enviroment
+.env
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+nexusCredentials.sbt
+
+database/seed.sql

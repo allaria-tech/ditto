@@ -1,0 +1,14 @@
+name: Deploy to production environment
+
+on:
+  push:
+    branches:
+      - main
+      - master
+jobs:
+ build-and-deploy:
+  uses: allaria-tech/infra-github-actions/.github/workflows/deploy-ecs.yml@main
+  with:
+    environment: production
+    runs-on: self-hosted
+  secrets: inherit

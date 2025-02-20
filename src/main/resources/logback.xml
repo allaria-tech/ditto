@@ -1,0 +1,26 @@
+<configuration scan="true" debug="false" scanPeriod="30 seconds">
+
+
+    <property name="isoDate" value="%date{&quot;yyyy-MM-dd'T'HH:mm:ss.SSS'Z'&quot;,GMT}" />
+    <property name="cHostname" value="${HOSTNAME}:-unknown" />
+
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+        <resetJUL>true</resetJUL>
+    </contextListener>
+
+    <jmxConfigurator />
+
+    <property name="evoPattern"
+        value="${isoDate} ${cHostname} %-4p [%t] %c{4} : %m %replace(%xThrowable{20}){'\n', '&#92;n'}%nopex" />
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>${evoPattern}%n</pattern>
+        </layout>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+    </root>
+
+</configuration>

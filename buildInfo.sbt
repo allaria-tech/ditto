@@ -1,0 +1,1 @@
+buildInfoOptions += BuildInfoOption.BuildTime

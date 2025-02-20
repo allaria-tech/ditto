@@ -1,0 +1,8 @@
+name: Production => Deploy by tag
+
+on:
+  workflow_dispatch:
+jobs:
+  build-and-deploy:
+    uses: allaria-tech/infra-github-actions/.github/workflows/deploy-ecs-from-tag.yml@main
+    secrets: inherit

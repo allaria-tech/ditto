@@ -1,0 +1,37 @@
+# | CPU (vCPU) | Memory (GB)                      |
+# |------------|----------------------------------|
+# | 0.25       | 0.5 GB, 1 GB, 2 GB               |
+# | 0.5        | 1 GB, 2 GB, 3 GB, 4 GB           |
+# | 1          | 2 GB, 3 GB, 4 GB, 5 GB           |
+# | 2          | 4 GB - 16 GB (in 1 GB increments)|
+#
+# - CPU: Specified in vCPUs, such as 0.25, 0.5, 1, 2.
+# - Memory: Must be selected according to the supported values in the table.
+#
+# Example of a valid configuration:
+# cpu: 0.5, memory: "0.5GB"
+
+resources:
+  cpu: 2           # CPU defined in vCPU (0.25 vCPU)
+  memory: "2GB"        # Memory specified in GB
+
+environment:
+  ENVIRONMENT: prod
+  HTTP_HOST: "0.0.0.0"
+  HTTP_PORT: 8080
+  COLORIZE_LOGS: false
+  DOTERIZE: true
+  EMPHASIZE: true
+  NEW_LINE_IN_LOGS: false
+  DISCORD_ENABLED: true
+  AUTH_HOST: "https://authn.svc.internal.allaria.cloud"
+ 
+  USER_ACCOUNT_MANAGEMENT_HOST: "https://user-account-mgmt-int.allariamas.com.ar"
+  AWS_REGION: "us-east-1"
+  PIDGEY_TOPIC_ARN: "arn:aws:sns:us-east-1:689671604012:pidgey_topic"
+  DATABASE_HOST: "corepg.db.internal.allaria.cloud"
+  DATABASE_PORT: 5432
+  DB_NAME: "dbname"
+
+#secrets:
+#  ???
