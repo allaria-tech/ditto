@@ -13,10 +13,10 @@ trait AppContextModule { self: ApplicationModule =>
   implicit val context: Context = Context(maybeUow = Some(""))
 
   implicit val lc: LoggerContext = LoggerContext(
-    colorize = applicationConf.currentEnv.internalConfig.logger.colorize,
-    emphasize = applicationConf.currentEnv.internalConfig.logger.emphasize,
-    doterize = applicationConf.currentEnv.internalConfig.logger.doterize,
-    newLineInLogs = applicationConf.currentEnv.internalConfig.logger.newLineInLogs
+    colorize = applicationConf.conf.internalConfig.logger.colorize,
+    emphasize = applicationConf.conf.internalConfig.logger.emphasize,
+    doterize = applicationConf.conf.internalConfig.logger.doterize,
+    newLineInLogs = applicationConf.conf.internalConfig.logger.newLineInLogs
   )
 
 }

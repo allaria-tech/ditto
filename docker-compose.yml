@@ -1,5 +1,4 @@
 services:
-
   database-service:
     image: postgres
     restart: always
@@ -30,5 +29,5 @@ services:
     volumes:
       - mongodb_data:/data/db
 volumes:
-  db:
+  mongodb_data:
     driver: local

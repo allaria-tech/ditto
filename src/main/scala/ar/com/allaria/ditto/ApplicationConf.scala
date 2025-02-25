@@ -1,10 +1,6 @@
 package ar.com.allaria.ditto
 
-import daruma.commons.config.{
-  ApplicationConf => CommonsApplicationConf,
-  ApplicationConfig => CommonsApplicationConfig,
-  EnvConfig => CommonsEnvConfig
-}
+import daruma.commons.config.{EnvConfig => CommonsEnvConfig, Environments}
 import daruma.commons.data.configs.sentry.SentryConfig
 import daruma.commons.notifications.config.entities.DiscordConfig
 import pureconfig.ConfigSource
@@ -51,22 +47,14 @@ final case class ExternalServicesConfig(
 )
 
 final case class ApplicationConfig(
-                                    environment: String,
-                                    dev: EnvConfig,
-                                    prod: EnvConfig,
-                                    server: HttpServerConfig,
-                                  ) extends CommonsApplicationConfig
+    environment: String,
+    server: HttpServerConfig,
+    externalServices: ExternalServicesConfig,
+    internalConfig: InternalConfig
+)
 
-final case class ApplicationConf() extends CommonsApplicationConf {
-
+final case class ApplicationConf() extends Environments {
   val conf: ApplicationConfig = ConfigSource.default.loadOrThrow[ApplicationConfig]
 
   override def environment: String = conf.environment
-
-  override def dev: EnvConfig = conf.dev
-
-  override def prod: EnvConfig = conf.prod
-
-  override def currentEnv: EnvConfig =  dev
-
 }

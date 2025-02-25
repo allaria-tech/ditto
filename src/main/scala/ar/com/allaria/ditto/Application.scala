@@ -14,7 +14,6 @@ import org.http4s.{Http, Request, Response}
 
 object Application extends IOApp with ApplicationModule {
 
-
   private implicit val mkrs: Set[Marker] = Set(Marker(s"${BuildInfo.name.toUpperCase}"))
 
   override def run(args: List[String]): IO[ExitCode] =
